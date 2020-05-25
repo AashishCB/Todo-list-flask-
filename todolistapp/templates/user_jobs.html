@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+  {% if current_user.is_authenticated %}
+  <li class='nav-link'>
+    <a href="{{url_for('users.logout')}}">Log Out</a>
+  </li>
+  {% endif %}
+    <form method="POST">
+      {{form.hidden_tag()}}
+      {{form.text.label}}{{form.text}}
+      {{form.submit()}}
+    </form>
+    TO DO<br>
+        {% for job in jobs %}
+        {% if not job.completed %}
+        <!-- Default dropright button -->
+    <div class="btn-group dropright">
+      <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        {{job}}
+      </button>
+      <div class="dropdown-menu">
+        <a href="{{url_for('users.job_status', job_id=job.id)}}">mark as completed</a><br>
+        <a href="">Created date: {{job.dateandtime.strftime('%Y-%m-%d')}}</a><br>
+        <a href="{{url_for('users.delete_job', job_id=job.id)}}">Delete Job</a>
+      </div>
+    </div><br>
+      {% endif %}
+        {% endfor %}
+____________________________________________________________________________________________________________________________________________________________________
+COMPLETED<br>
+  {% for job in jobs %}
+  {% if job.completed %}
+<div class="btn-group dropright">
+<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  {{job}}
+</button>
+<div class="dropdown-menu">
+  <a href="{{url_for('users.job_status', job_id=job.id)}}">mark as incomplete</a><br>
+  <a href="">Created date: {{job.dateandtime.strftime('%Y-%m-%d')}}</a><br>
+  <a href="{{url_for('users.delete_job', job_id=job.id)}}">Delete Job</a>
+</div>
+</div><br>
+{% endif %}
+  {% endfor %}
+{% endblock %}

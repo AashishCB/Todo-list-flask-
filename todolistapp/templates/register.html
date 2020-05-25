@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<ul class='nav'>
+  <li class='nav-link'>
+    <a href="{{url_for('users.login')}}">Log In</a>
+  </li>
+</ul>
+  <form method="POST">
+    {{form.hidden_tag()}}
+
+    {{form.email.label}}{{form.email}} {% for error in form.errors['email'] %} {{error}} {% endfor %}<br>
+    {{form.username.label}}{{form.username}} {% for error in form.errors['username'] %} {{error}} {% endfor %}<br> 
+    {{form.password.label}}{{form.password}}<br>
+    {{form.pass_confirm.label}}{{form.pass_confirm}}<br>
+    {{form.submit()}}
+    
+  </form>
+{% endblock %}
