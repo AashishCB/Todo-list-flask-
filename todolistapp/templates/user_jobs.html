@@ -19,14 +19,14 @@
         {{job}}
       </button>
       <div class="dropdown-menu">
-        <a href="{{url_for('users.job_status', job_id=job.id)}}">mark as completed</a><br>
-        <a href="">Created date: {{job.dateandtime.strftime('%Y-%m-%d')}}</a><br>
+        <a href="{{url_for('users.job_status', job_id=job.id)}}">mark as completed</a><br />
+        <a href="">Created date: {{job.dateandtime.strftime('%Y-%m-%d')}}</a><br />
         <a href="{{url_for('users.delete_job', job_id=job.id)}}">Delete Job</a>
       </div>
-    </div><br>
+    </div><br />
       {% endif %}
         {% endfor %}
-____________________________________________________________________________________________________________________________________________________________________
+<hr />
 COMPLETED<br>
   {% for job in jobs %}
   {% if job.completed %}
@@ -35,11 +35,11 @@ COMPLETED<br>
   {{job}}
 </button>
 <div class="dropdown-menu">
-  <a href="{{url_for('users.job_status', job_id=job.id)}}">mark as incomplete</a><br>
-  <a href="">Created date: {{job.dateandtime.strftime('%Y-%m-%d')}}</a><br>
+  <a href="{{url_for('users.job_status', job_id=job.id)}}">mark as incomplete</a><br />
+  <a href="">Created date: {{job.dateandtime.strftime('%Y-%m-%d')}}</a><br />
   <a href="{{url_for('users.delete_job', job_id=job.id)}}">Delete Job</a>
 </div>
-</div><br>
+</div><br />
 {% endif %}
   {% endfor %}
 {% endblock %}
