@@ -1,0 +1,4 @@
+__pycache__
+migrations
+todolistapp/__pychache__
+todolistapp/data.sqlite
