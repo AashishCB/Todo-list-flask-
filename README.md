@@ -33,8 +33,11 @@ Manage your work by adding things needed to be done, mark them on completion, de
 1. Open the cmd or terminal in the project folder where app.py file is located.
 
 2. Run the following commands to setup the database,
+
 ` flask db init `
-` flask db migrate -m "new tables"
+
+` flask db migrate -m "new tables" `
+
 ` flask db upgrade `
 
 > The following process should not throw any errors, warnings can be ignored.
@@ -42,6 +45,7 @@ Manage your work by adding things needed to be done, mark them on completion, de
 3. After that, you will see new folders and files inside the project, which does means that database has been set.
 
 4. Run the below command to start the project.
+
 ` python app.py `
 
 or 
